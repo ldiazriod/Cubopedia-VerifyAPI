@@ -20,7 +20,10 @@ const run = async() =>{
 
 run()
 app.use(cors())
-app.get("/verify/:id/:token", async (req, res) => {
+app.get("/", (req, res) => {
+    res.send("Ok")
+})
+app.get("/user/verify/:id/:token", async (req, res) => {
     try{
         if(req.params.id && req.params.token){
             const db: Db = app.get("db")
@@ -32,10 +35,12 @@ app.get("/verify/:id/:token", async (req, res) => {
                 if(token){
                     await userCollection.updateOne({_id: user._id}, {$set: {verified: true}})
                     await tokenCollection.deleteOne(token)
-                    res.redirect(process.env.FRONT_URL)
+                    res.redirect(process.env.FRONT_URL ? process.env.FRONT_URL : "")
                 }
             }
+            return false
         }
+        return false
     }catch(e){
         console.log(e)
     }
