@@ -13,17 +13,17 @@ After cloning the project, install all required packages by running the followin
 
 `npm install`
 
-Create a new file called ".env" and use the file ![.env.sample](.env.sample) as a guide.
+Create a new file called ".env" and use the file [.env.sample](.env.sample) as a guide.
 
 Finally you can run the service by runing the following command:
 
 `npm start`
 
-The service will start at **http://locahost:PORT**
+The service will start at **<http://locahost:PORT>**
 
 PORT is 4001 by default. To change this value, add PORT=portNumber inside .env file.
 
-## API Endpoints:
+## API Endpoints
 
 The API has two endpoints:
 
@@ -41,7 +41,7 @@ The API has two endpoints:
 
 **Method:** GET
 
-**Request params**: 
+**Request params**:
 
 - id: MongoDB user ID
 - Token: Verification token sended to the user.
